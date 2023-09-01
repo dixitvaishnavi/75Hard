@@ -1,0 +1,39 @@
+class Tree
+{
+    public static void printCorner(Node node)
+    {
+        
+        // add your code here   
+         if (node == null) {
+            return;
+        }
+
+        Queue<Node> queue = new ArrayDeque<>();
+
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+
+            int n = queue.size();
+
+
+            for (int i = 1; i <= n; i++) {
+                Node temp = queue.poll();
+                if (i == 1 || i == n) {
+                    System.out.print(temp.data + " ");
+                }
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+
+
+            }
+
+
+        }
+    }
+    
+}
