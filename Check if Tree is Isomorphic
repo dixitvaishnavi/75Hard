@@ -1,0 +1,25 @@
+class Solution  
+{ 
+    // Return True if the given trees are isomotphic. Else return False.
+    boolean isIsomorphic(Node root1, Node root2)  
+    { 
+         // code here.
+         if (root1 == null && root2 == null)
+            return true;
+        
+        // If one of the trees is empty, they are not isomorphic
+        if (root1 == null || root2 == null)
+            return false;
+        
+        // check if the data of the current nodes is the same
+        if (root1.data != root2.data)
+            return false;
+        
+        // check for isomorphism recursively by considering two cases:
+        // 1. The subtrees of root1 map to the subtrees of root2
+        // 2. The subtrees of root1 map to the mirrored subtrees of root2
+        return (isIsomorphic(root1.left, root2.left) && isIsomorphic(root1.right, root2.right)) ||
+               (isIsomorphic(root1.left, root2.right) && isIsomorphic(root1.right, root2.left));
+    }
+    
+}    
