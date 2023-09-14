@@ -1,0 +1,30 @@
+class  MyStack
+{
+    int top;
+	int arr[] = new int[1000];
+
+    MyStack()
+	{
+		top = -1;
+	}
+	
+	//Function to push an integer into the stack.
+    void push(int a)
+	{
+	    // Your code here
+	    this.top=this.top+1;
+	    this.arr[this.top]=a;
+	} 
+	
+    //Function to remove an item from top of the stack.
+	int pop()
+	{
+        // Your code here
+        if(this.top>-1){
+            int num=arr[this.top];
+            this.top=this.top-1;
+            return num;
+        }
+        return -1;
+	}
+}
